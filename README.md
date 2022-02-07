@@ -72,3 +72,21 @@ const prices = cars.map((car) => {
 });
 console.log(prices); //[安い,高い]
 ```
+## filter関数
+
+filter関数は下記のように配列の要素を絞ることができる
+```
+const products = [
+  { name: "きゅうり", type: "野菜" },
+  { name: "オレンジ", type: "フルーツ" }
+];
+
+
+const x = products.filter((product) => {
+  return product.type === "フルーツ";
+  
+}); 
+
+x //[{"name":"オレンジ","type":"フルーツ"}]
+
+```
