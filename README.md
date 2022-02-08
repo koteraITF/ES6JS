@@ -30,20 +30,7 @@ numbers.forEach((number) => {
 
 console.log(sum); //15
 ```
-今回は、forEachの中にアロー関数を書いたが、forEachとアロー関数を分けることもできる。
-```
-var numbers = [1,2,3,4,5];
 
-var sum = 0;
-
-const adder = (number) => {
-  sum += number;
-}
-
-numbers.forEach(adder);
-
-console.log(sum);　//15
-```
 
 ## map関数
 
