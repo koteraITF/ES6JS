@@ -77,3 +77,22 @@ const x = products.filter((product) => {
 x //[{"name":"オレンジ","type":"フルーツ"}]
 
 ```
+
+## find関数
+
+下記のように配列の中から特定のものを取り出すときに利用できる。
+```
+const accounts = [{ balance: -10 }, { balance: 12 }, { balance: 0 }];
+
+const account = accounts.find((account) => {
+  return (account.balance = 12);
+});
+
+console.log(account);
+
+```
+
+## everyとsome
+everyは論理積を返す、someは論理和を返す。
+
+
