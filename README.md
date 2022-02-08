@@ -59,6 +59,32 @@ const prices = cars.map((car) => {
 });
 console.log(prices); //[安い,高い]
 ```
+また、map関数は第二引数ととることができる。  
+「value」は、配列の値  
+「index」は、配列のインデックス番号  
+「array」は、現在処理している配列  
+
+```
+var foodList = {
+  'オムライス': 450,
+  '焼きそば': 500,
+  'お好み焼き': 600,
+  '焼き飯': 400
+};
+ 
+//任意のキーワードを指定する
+var order = ['焼き飯', 'お好み焼き'];
+ 
+var result = order.map( function( value, index, array ) {
+ 
+//配列のキーワードを使ってオブジェクト内の値を取得する
+    return this[value];
+ 
+}, foodList );
+ 
+console.log( result ); //[400, 600]
+ 
+```
 ## filter関数
 
 filter関数は下記のように配列の要素を絞ることができる
