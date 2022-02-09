@@ -141,5 +141,32 @@ const COLORS = { red, blue};
 ```
 
 ## デフォルト引数
+下記のような関数があった場合、デフォルト引数を利用すれば、省略可できる。
+
+```
+function sum(a, b) {
+  if (a === undefined) {
+    a = 0; 
+  }
+  
+  if (b === undefined) {
+    b = 0; 
+  }
+  
+  return a + b;
+}
+```
+下記のようにa=0とb=0をデフォルトとして設定できる。
+```
+function sum(a=0, b=0) {
+  if (a === undefined) {
+  }
+  
+  if (b === undefined) {
+  }
+  
+  return a + b;
+}
+```
 
 
