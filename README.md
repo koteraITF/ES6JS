@@ -121,4 +121,25 @@ console.log(account);
 ## everyとsome
 everyは論理積を返す、someは論理和を返す。
 
+## オブジェクトリテラル
+
+下記コマンドのred: red と　blue: blue はプロパティとキーの値と変数名が等しい場合は省略記法が使える。  
+const x = { object:key }  
+```
+const red = '#ff0000';
+const blue = '#0000ff';
+
+const COLORS = { red: red, blue: blue };
+```
+
+下記コマンドが省略記法である。
+```
+const red = '#ff0000';
+const blue = '#0000ff';
+
+const COLORS = { red, blue};
+```
+
+## デフォルト引数
+
 
