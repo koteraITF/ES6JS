@@ -169,4 +169,19 @@ function sum(a=0, b=0) {
 }
 ```
 
+reduce関数
+reduce関数は引数をふたつとり、１つ目は今まで通りの配列などの処理を書くが、２つ目は初期値をかく。  
+下記のように合計を求めるときに便利
+
+```
+const trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+
+const totalDistance = trips.reduce(function(sum, trip) {
+  return trip.distance + sum;
+}, 0); //初期値0
+
+totalDistance //47
+
+```
+
 
