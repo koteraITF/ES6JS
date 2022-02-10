@@ -193,5 +193,91 @@ const z = [...x,...y]
 
 z //[1,2,3,4,5,6,7,8,9]
 ```
+## 分割代入
+従来までは下記のようにshop.typeのようにして記述していたが、これは冗長である。
+```
+const shop = {
+	type:'りんご'
+	ammount: '100'
+}
+ 
+const type = shop.type
+const ammount = shop.ammount
 
+type //りんご
+ammount // 100
+```
+分割代入を用いれば下記のようにコンパクトにかけるようになる。
 
+```
+const shop = {
+	type:'りんご'
+	ammount: '100'
+}
+ 
+const {type, ammount} = shop;
+type //りんご
+ammount // 100
+```
+下記のように、配列に名前を与えてなくても、分割代入でnameなどの名前を与えることで、配列のそれぞれの要素に名前が自動採番される。  
+```
+const companies = [
+	'Google',
+	'Facebook',
+	'Uber,
+]
+
+const [name, name2, name3] = companies
+name //Google
+name2 //Facebook
+name3 //uber
+
+```
+また、下記のようにレスト演算子（スプレッド構文）を用いると、  
+一つ目のnameにはGoogleを注入し、他の配列の要素を...restに配列として注入することができる。
+```
+const companies = [
+	'Google',
+	'Facebook',
+	'Uber,
+]
+
+const [name, ...rest] = companies
+name //Google
+...rest //["Facebook","Uber"]
+
+```
+
+下記のような配列から、locationのマウンテンビューを取りたい場合は、  
+`companies[0].location`のようにかいてもいいが、冗長である。  
+よって、分割代入をもちいて　 `const [{ location }] = companies`のようにかくことで、効率化できる。
+```
+const companies = [
+	{'Google',location:'マウンテンビュー'}
+	{'Facebook',location:'メロンパーク'}
+	{'Uber,location: 'サンフランシスコ'}
+]
+
+const [{ location }] = companies;
+
+location //マウンテンビュー
+
+```
+
+また、下記のようにこれまで習ったことを応用することで、classesで渡された配列に、subjectやtimeやteacherなどの情報を渡すことができる。
+```
+const classes = [
+  [ '化学', '1時限目', '鈴木先生' ],
+  [ '物理', '2時限目', '佐藤先生'],
+];
+
+const classesAsObject = classes.map(([subject,time,teacher]) => {
+  return(
+    {subject,time,teacher}
+  )
+})
+
+classesAsObject
+```
+
+<img width="487" alt="image" src="https://user-images.githubusercontent.com/97214466/153367845-39170203-6323-4d67-9fe9-ec3fd6ae7176.png">
