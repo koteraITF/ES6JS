@@ -281,3 +281,20 @@ classesAsObject
 ```
 
 <img width="487" alt="image" src="https://user-images.githubusercontent.com/97214466/153367845-39170203-6323-4d67-9fe9-ec3fd6ae7176.png">
+
+## クラスの継承
+
+```javaScript
+class Car {
+	constructor({title}){
+		this.title = title; }
+}
+
+class Toyota extends Car{          //extendsで継承
+	constructor(options){
+	super(options);　　　　　　　　　　//super()で親クラス（Car）のコンストラクタを呼び出している
+	this.color = options.color;
+	}
+}
+
+```
