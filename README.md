@@ -298,3 +298,17 @@ class Toyota extends Car{          //extendsで継承
 }
 
 ```
+
+## Promiseとfetch
+
+### 前提知識
+javaScriptはコードを途中で止める方法がないため、  
+下図のように、dataのやりとりに3秒かかっている間、先に`console.log(data)`が出力されてしまい、意図しない結果となる。  
+よって、javaScriptにはdataとやりとりしている3秒間の間、コードを止める手段が必要となる。
+<img width="524" alt="image" src="https://user-images.githubusercontent.com/97214466/153815652-45efe279-9c8f-49d5-999f-0eefd673243f.png">
+
+Promiseは下図のように3つの状態に分かれる。  
+<img width="566" alt="image" src="https://user-images.githubusercontent.com/97214466/153816455-58fd5e0c-a266-4070-83c6-6c0a03942d46.png">
+resolvedで成功した場合は、thenでその後の処理を記述できる.  
+rejectedで失敗した場合は、catchでその後のエラー処理を記述できる.  
+
