@@ -312,3 +312,26 @@ Promiseは下図のように3つの状態に分かれる。
 resolvedで成功した場合は、thenでその後の処理を記述できる.  
 rejectedで失敗した場合は、catchでその後のエラー処理を記述できる.  
 
+### thenとfetch
+
+下記コマンドのようにpromiseがresolve()の場合は、thenで書いたものが実行されるので、  
+`処理が完了しました`と `処理が完了しました2` は出力されるが、`問題発生`は出力されない  
+逆に、rejectの場合は、`問題発生`が出力される。  
+```
+const promise = new Promise((resolve, reject) => {
+  reject();
+});
+
+promise
+.then(() => {
+  console.log("処理が完了しました。")
+.then(() => {
+  console.log("処理が完了しました2")
+.catch(() => {
+  console.log("問題発生")
+})
+})
+})
+```
+
+
