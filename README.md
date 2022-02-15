@@ -308,7 +308,7 @@ javaScriptはコードを途中で止める方法がないため、
 <img width="524" alt="image" src="https://user-images.githubusercontent.com/97214466/153815652-45efe279-9c8f-49d5-999f-0eefd673243f.png">
 
 Promiseは下図のように3つの状態に分かれる。  
-<img width="566" alt="image" src="https://user-images.githubusercontent.com/97214466/153816455-58fd5e0c-a266-4070-83c6-6c0a03942d46.png">
+<img width="566" alt="image" src="https://user-images.githubusercontent.com/97214466/153816455-58fd5e0c-a266-4070-83c6-6c0a03942d46.png">  
 resolvedで成功した場合は、thenでその後の処理を記述できる.  
 rejectedで失敗した場合は、catchでその後のエラー処理を記述できる.  
 
@@ -319,19 +319,43 @@ rejectedで失敗した場合は、catchでその後のエラー処理を記述�
 逆に、rejectの場合は、`問題発生`が出力される。  
 ```
 const promise = new Promise((resolve, reject) => {
-  reject();
+  resolve();
 });
 
 promise
-.then(() => {
-  console.log("処理が完了しました。")
-.then(() => {
-  console.log("処理が完了しました2")
-.catch(() => {
-  console.log("問題発生")
-})
-})
-})
+  .then(() => console.log("処理が完了しました。"))
+  .then(() => console.log("処理が完了しました2"))
+  .catch(() => console.log("問題発生"));
 ```
 
+また、下記コマンドのように`setTimeout`関数を用いて、時間差で（今回は3秒）resolve (rejectでもok)を返すことができる。
+```
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve();
+  }, 3000);
+});
 
+promise
+  .then(() => console.log("処理が完了しました。"))
+  .then(() => console.log("処理が完了しました2"))
+  .catch(() => console.log("問題発生"));
+
+```
+## for of 文
+
+下記のように `for (let 新しい配列　of 元の配列)`で配列処理を記述できる。
+```
+const numbers = [1,2,3]
+
+let total = 0;
+
+for (let number of numbers) {
+  total += number; //10
+}
+```
+
+## generator
+
+generatorとは繰り返し利用できる関数である。  
+generatorはこのように、`function* numbers(){}`定義したい関数に * マークをつけることでgeneratorにすることができる。  
