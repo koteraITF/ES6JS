@@ -104,6 +104,21 @@ x //[{"name":"オレンジ","type":"フルーツ"}]
 
 ```
 
+また、filter関数は削除機能にも応用できる.  
+例えば、どこかのタグにonClickDeleteイベントをつけた時を考える。
+未完了リストの配列incompleteTodosが存在すると仮定して、filter関数を用いる。  
+ここで、todoリストの1つがindex番目でないものをreturnしている。  
+逆に言うと、index番目のものを削除している
+```
+  const onClickDelete = (index) => {
+    const newTodos = [...incompleteTodos].filter(
+      (todo, todoIndex) => todoIndex !== index
+    );
+    setIncompleteTodos(newTodos);
+  };
+```
+
+
 ## find関数
 
 下記のように配列の中から特定のものを取り出すときに利用できる。
